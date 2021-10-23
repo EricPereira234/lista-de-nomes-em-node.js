@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Amigo Benfeitor</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+<body>
+        
+    <header >
+       <b>Amigo Benfeitor do Seminário</b>
+    </header>
+
+    <b>[<a href="/amigo/cadastro">Cadastrar novo amigo do Seminário</a>]</b>
+    <% amigos.forEach(function(amigos){ %>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">EDITAR</th>
+            <th scope="col">Nome</th>
+            <th scope="col">endereço</th>
+            <th scope="col">Aniversário</th>
+            <th scope="col">liturgia</th>
+            <th scope="col">R$</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><a href="/editar/amigo/<%= amigos.id %>">[editar]</a></th>
+            <td><%= amigos.nome %></td>
+            <td><%= amigos.endereco %></td>
+            <td><%= amigos.aniversario %></td>
+            <td><%= amigos.liturgia %></td>
+            <td><%= amigos.valor %></td>
+          </tr>
+          
+         
+        </tbody>
+      </table>
+      <%});%>
+    <footer>
+       &copy;Todos os direitos reservados <br>
+       Eric Pereira
+    </footer>
+    
+</body>
+</html>

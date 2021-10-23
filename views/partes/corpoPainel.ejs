@@ -1,0 +1,23 @@
+<% contribuintes.forEach(function(contribuintes){ %>
+<section>
+  
+    <b><%= contribuintes.nome %> </b>-(<%= contribuintes.mes %>) <a href="/formUpdate/<%= contribuintes.id %>">Editar</a>
+       
+
+       <form action="/deletar" method="POST" onsubmit="confirmDel(event, this)">
+        <input type="hidden" value="<%= contribuintes.id %>" name="id">
+        <input type="submit" value="Excluir"  style="background: rgb(255, 0, 0);">
+        </form>
+</section>
+
+<% }); %>
+
+<script>
+    function confirmDel(event, form){
+    event.preventDefault();
+    var decisao = confirm('Tem certeza que deseja excluir o comtribuinte ?');
+    if(decisao){
+      form.submit();
+    }
+  };
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Amigo Benfeitor</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+<body>
+    
+<div class="container">
+<form method="POST" action="/update/amigo">
+    <input type="hidden" name="id" value="<%= amigos.id %>">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nome:</label>
+      <input type="text" class="form-control" name="nome" value="<%= amigos.nome %>" required>
+
+      <label for="exampleInputEmail1">Endereço:</label>
+      <input type="text" class="form-control" name="endereco" value="<%= amigos.endereco %>" required>
+
+      <label for="exampleInputEmail1">Aniversário:</label>
+      <input type="date" class="form-control" name="aniversario" value="<%= amigos.aniversario %>" required>
+      
+     
+      <label for="exampleInputEmail1">valor:</label>
+      <input type="text" class="form-control" name="valor" value="<%= amigos.valor %>" required>
+     <br>
+
+      
+
+    <div class="form-group">
+      <label for="exampleInputEmail1"><b>liturgia recebida</b></label>
+      <select class="form-select"  name="liturgia">
+        
+        <option value="janeiro">janeiro</option>
+        <option value="fevereiro">fevereiro</option>
+        <option value="março">março</option>
+        <option value="abril">abril</option>
+        <option value="maio">maio</option>
+        <option value="junho">junho</option>
+        <option value="julho">julho</option>
+        <option value="agosto">agosto</option>
+        <option value="setembro">setembro</option>
+        <option value="outubro">outubro</option>
+        <option value="novembro">novembro</option>
+        <option value="dezembro">dezembro</option>
+      </select>
+      <br>
+  </div>
+
+    
+    
+    <button type="submit" class="btn btn-primary">salvar</button>
+  </form>
+  <hr>
+  <form action="/deletar/amigo" method="POST" onsubmit="confirmDel(event, this)">
+    <input type="hidden" value="<%= amigos.id %>" name="id">
+    <input type="submit" value="Excluir"  style="background: rgb(255, 0, 0);">
+    </form>
+  
+  </div>
+
+  <script>
+    function confirmDel(event, form){
+    event.preventDefault();
+    var decisao = confirm('Tem certeza que deseja excluir o amigo benfeitor ????');
+    if(decisao){
+      form.submit();
+    }
+  };
+</script>
