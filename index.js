@@ -39,11 +39,11 @@ app.post('/verdade', function(req, res){
   const e = '';
   const s = '';
   if(email == e && senha == s){
-    res.redirect('/areadeadministracaodosistemadenomesdoprogramaparoquiadecocal@')
+    res.redirect('/areadeadmin')
   }
   });
 
- app.get('/areadeadministracaodosistemadenomesdoprogramaparoquiadecocal@',function(req, res){
+ app.get('/areadeadmin',function(req, res){
       Gravar.findAll({order:[['id','DESC']]}).then(function (contribuintes) {
         res.render('painel', {contribuintes: contribuintes});
       })
@@ -70,7 +70,7 @@ app.post('/verdade', function(req, res){
    var id = req.body.id;
    if(id !=undefined){
        Gravar.destroy({where: {id: id}}).then(function(){
-           res.redirect('/areadeadministracaodosistemadenomesdoprogramaparoquiadecocal@');
+           res.redirect('/areadeadmin');
        });
    }
   });
@@ -92,14 +92,14 @@ app.post('/verdade', function(req, res){
        var data = req.body.data;
        Gravar.update({nome: nome, mes: data}, {where:{id: id}}).then(function(){
           
-           res.redirect('/areadeadministracaodosistemadenomesdoprogramaparoquiadecocal@');
+           res.redirect('/areadeadmin');
        });
        
   });
 
   // --------------------- área do amigo bem feitor ----------------------------------
   
-  app.get('/amigopadresentraracessarkdjsdfhhglsijjghalkd@', (req ,res)=>{
+  app.get('/amigo', (req ,res)=>{
     Amigo.findAll({order:[['id','DESC']]}).then(function(amigos){ 
     res.render('amigoHome',{amigos: amigos});
     });
@@ -116,7 +116,7 @@ app.post('/verdade', function(req, res){
     const sn = '';
 
     if(Em == em && Sn == sn){
-        res.redirect('/amigopadresentraracessarkdjsdfhhglsijjghalkd@');
+        res.redirect('/amigo');
     }else{
         
     }
@@ -141,7 +141,7 @@ app.post('/verdade', function(req, res){
         liturgia: Liturgia
 
     }).then(function(){
-        res.redirect('/amigopadresentraracessarkdjsdfhhglsijjghalkd@');
+        res.redirect('/amigop');
     }).catch(function(err){
         console.log('não salvou');
     })
@@ -171,7 +171,7 @@ app.post('/verdade', function(req, res){
         valor: Valor,
         liturgia: Liturgia}, {where:{id: id}}).then(function(){
        
-        res.redirect('/amigopadresentraracessarkdjsdfhhglsijjghalkd@');
+        res.redirect('/amigo');
     });
     
 });
@@ -179,7 +179,7 @@ app.post('/deletar/amigo', function(req, res){
     var id = req.body.id;
     if(id !=undefined){
         Amigo.destroy({where: {id: id}}).then(function(){
-            res.redirect('/amigopadresentraracessarkdjsdfhhglsijjghalkd@');
+            res.redirect('/amigo');
         });
     }
    });
